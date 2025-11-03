@@ -691,6 +691,12 @@ const MagicBento: React.FC<BentoProps> = ({
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
+              }),
+              ...(index === 3 && {
+                backgroundImage: 'url(https://i.pinimg.com/1200x/a9/cf/69/a9cf69a251efb1002ae1ea8f5ce207d1.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
               })
             } as React.CSSProperties;
 
