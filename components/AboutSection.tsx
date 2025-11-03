@@ -133,7 +133,7 @@ export default function AboutSection() {
             {/* Image with gradient overlay */}
             <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://i.pinimg.com/1200x/3f/b4/e0/3fb4e0d5468fce55a94cced80fb62900.jpg"
+                src="https://i.pinimg.com/originals/33/3d/12/333d125b555e475cd984531946244fa4.gif"
                 alt="Color Spectrum Dashboard"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
