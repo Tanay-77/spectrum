@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Renderer, Triangle, Program, Mesh } from 'ogl';
 
 type PrismProps = {
@@ -39,40 +39,52 @@ const Prism: React.FC<PrismProps> = ({
   timeScale = 0.5
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const [hasWebGLError, setHasWebGLError] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const H = Math.max(0.001, height);
-    const BW = Math.max(0.001, baseWidth);
-    const BASE_HALF = BW * 0.5;
-    const GLOW = Math.max(0.0, glow);
-    const NOISE = Math.max(0.0, noise);
-    const offX = offset?.x ?? 0;
-    const offY = offset?.y ?? 0;
-    const SAT = transparent ? 1.5 : 1;
-    const SCALE = Math.max(0.001, scale);
-    const HUE = hueShift || 0;
-    const CFREQ = Math.max(0.0, colorFrequency || 1);
-    const BLOOM = Math.max(0.0, bloom || 1);
-    const RSX = 1;
-    const RSY = 1;
-    const RSZ = 1;
-    const TS = Math.max(0, timeScale || 1);
-    const HOVSTR = Math.max(0, hoverStrength || 1);
-    const INERT = Math.max(0, Math.min(1, inertia || 0.12));
+    try {
+      const H = Math.max(0.001, height);
+      const BW = Math.max(0.001, baseWidth);
+      const BASE_HALF = BW * 0.5;
+      const GLOW = Math.max(0.0, glow);
+      const NOISE = Math.max(0.0, noise);
+      const offX = offset?.x ?? 0;
+      const offY = offset?.y ?? 0;
+      const SAT = transparent ? 1.5 : 1;
+      const SCALE = Math.max(0.001, scale);
+      const HUE = hueShift || 0;
+      const CFREQ = Math.max(0.0, colorFrequency || 1);
+      const BLOOM = Math.max(0.0, bloom || 1);
+      const RSX = 1;
+      const RSY = 1;
+      const RSZ = 1;
+      const TS = Math.max(0, timeScale || 1);
+      const HOVSTR = Math.max(0, hoverStrength || 1);
+      const INERT = Math.max(0, Math.min(1, inertia || 0.12));
 
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const renderer = new Renderer({
-      dpr,
-      alpha: transparent,
-      antialias: false
-    });
-    const gl = renderer.gl;
-    gl.disable(gl.DEPTH_TEST);
-    gl.disable(gl.CULL_FACE);
-    gl.disable(gl.BLEND);
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      
+      const renderer = new Renderer({
+        dpr,
+        alpha: transparent,
+        antialias: false,
+        powerPreference: 'high-performance',
+        preserveDrawingBuffer: false
+      });
+      const gl = renderer.gl;
+      
+      if (!gl) {
+        console.warn('Failed to get WebGL context');
+        setHasWebGLError(true);
+        return;
+      }
+
+      gl.disable(gl.DEPTH_TEST);
+      gl.disable(gl.CULL_FACE);
+      gl.disable(gl.BLEND);
 
     Object.assign(gl.canvas.style, {
       position: 'absolute',
@@ -434,6 +446,10 @@ const Prism: React.FC<PrismProps> = ({
       }
       if (gl.canvas.parentElement === container) container.removeChild(gl.canvas);
     };
+    } catch (error) {
+      console.error('WebGL Error:', error);
+      setHasWebGLError(true);
+    }
   }, [
     height,
     baseWidth,
@@ -452,6 +468,19 @@ const Prism: React.FC<PrismProps> = ({
     bloom,
     suspendWhenOffscreen
   ]);
+
+  // Fallback gradient if WebGL fails
+  if (hasWebGLError) {
+    return (
+      <div 
+        className="w-full h-full relative" 
+        style={{
+          background: 'radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.4), rgba(59, 130, 246, 0.3), transparent 70%)',
+          animation: 'pulse 4s ease-in-out infinite'
+        }}
+      />
+    );
+  }
 
   return <div className="w-full h-full relative" ref={containerRef} />;
 };
