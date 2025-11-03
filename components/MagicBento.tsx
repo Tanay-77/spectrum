@@ -834,13 +834,13 @@ const MagicBento: React.FC<BentoProps> = ({
                 }}
               >
                 <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-lg font-medium">{card.label}</span>
+                  <span className="card__label text-xl font-bold">{card.label}</span>
                 </div>
                 <div className="card__content flex flex-col relative text-white">
-                  <h3 className={`card__title font-semibold text-2xl md:text-3xl m-0 mb-2 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                  <h3 className={`card__title font-extrabold text-3xl md:text-4xl lg:text-5xl m-0 mb-3 ${textAutoHide ? 'text-clamp-1' : ''}`}>
                     {card.title}
                   </h3>
-                  <p className={`card__description text-base md:text-lg leading-6 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                  <p className={`card__description font-semibold text-lg md:text-xl lg:text-2xl leading-7 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
                     {card.description}
                   </p>
                 </div>

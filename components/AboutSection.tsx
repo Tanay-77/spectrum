@@ -130,24 +130,14 @@ export default function AboutSection() {
                 : 'opacity-0 translate-x-20'
             }`}
           >
-            {/* Simplified Single Card */}
-            <div className="relative h-full">
-              <div
-                className="h-full bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-sky-500/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8 flex flex-col justify-end transition-transform duration-300 hover:scale-105"
-              >
-                {/* Color Swatches */}
-                <div className="flex gap-4">
-                  {[...Array(5)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 h-20 rounded-xl transition-transform duration-300 hover:scale-110"
-                      style={{
-                        background: `hsl(${190 + i * 15}, 85%, ${40 + i * 8}%)`
-                      }}
-                    />
-                  ))}
-                </div>
-              </div>
+            {/* Image with gradient overlay */}
+            <div className="relative h-full rounded-3xl overflow-hidden">
+              <img
+                src="https://i.pinimg.com/1200x/8b/98/32/8b98323ff024df075e3f54383966e86a.jpg"
+                alt="Color Spectrum"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           </div>
         </div>
