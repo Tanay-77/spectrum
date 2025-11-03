@@ -130,14 +130,14 @@ export default function AboutSection() {
                 : 'opacity-0 translate-x-20'
             }`}
           >
-            {/* Image with gradient overlay */}
-            <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
+            {/* Animated GIF with gradient overlay */}
+            <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl border border-white/10">
               <img
                 src="https://i.pinimg.com/originals/33/3d/12/333d125b555e475cd984531946244fa4.gif"
-                alt="Color Spectrum Dashboard"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                alt="Animated Color Spectrum"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
           </div>
         </div>
