@@ -124,20 +124,20 @@ export default function AboutSection() {
 
           {/* Right Content - Visual Elements */}
           <div 
-            className={`relative h-[500px] transition-all duration-700 delay-150 ease-out ${
+            className={`relative h-[600px] transition-all duration-700 delay-150 ease-out ${
               isVisible 
                 ? 'opacity-100 translate-x-0' 
                 : 'opacity-0 translate-x-20'
             }`}
           >
             {/* Image with gradient overlay */}
-            <div className="relative h-full rounded-3xl overflow-hidden">
+            <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src="https://i.pinimg.com/1200x/3f/b4/e0/3fb4e0d5468fce55a94cced80fb62900.jpg"
-                alt="Color Spectrum"
-                className="w-full h-full object-cover"
+                alt="Color Spectrum Dashboard"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
           </div>
         </div>
