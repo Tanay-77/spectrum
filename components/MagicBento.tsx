@@ -711,14 +711,14 @@ const MagicBento: React.FC<BentoProps> = ({
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" style={{ zIndex: 0 }} />
                   )}
                   <div className="card__header flex justify-between gap-3 relative text-white z-10">
-                    <span className="card__label text-xl font-bold">{card.label}</span>
+                    <span className="card__label text-xl md:text-2xl font-bold">{card.label}</span>
                   </div>
                   <div className="card__content flex flex-col relative text-white z-10">
-                    <h3 className={`card__title font-extrabold text-3xl md:text-4xl lg:text-5xl m-0 mb-3 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                    <h3 className={`card__title font-medium text-xl md:text-2xl m-0 mb-2 ${textAutoHide ? 'text-clamp-1' : ''}`}>
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description font-semibold text-lg md:text-xl lg:text-2xl leading-7 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}
+                      className={`card__description font-light text-sm md:text-base leading-6 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}
                     >
                       {card.description}
                     </p>
@@ -843,7 +843,7 @@ const MagicBento: React.FC<BentoProps> = ({
                 }}
               >
                 <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-xl font-bold">{card.label}</span>
+                  <span className="card__label text-3xl font-extrabold">{card.label}</span>
                 </div>
                 <div className="card__content flex flex-col relative text-white">
                   <h3 className={`card__title font-extrabold text-3xl md:text-4xl lg:text-5xl m-0 mb-3 ${textAutoHide ? 'text-clamp-1' : ''}`}>
