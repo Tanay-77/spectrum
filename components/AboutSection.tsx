@@ -133,7 +133,7 @@ export default function AboutSection() {
             {/* Image with gradient overlay */}
             <div className="relative h-full rounded-3xl overflow-hidden">
               <img
-                src="https://i.pinimg.com/1200x/8b/98/32/8b98323ff024df075e3f54383966e86a.jpg"
+                src="https://i.pinimg.com/1200x/3f/b4/e0/3fb4e0d5468fce55a94cced80fb62900.jpg"
                 alt="Color Spectrum"
                 className="w-full h-full object-cover"
               />
