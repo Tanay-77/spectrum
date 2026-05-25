@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description:
       "Bridge art and neuroscience with AI-powered color analysis tools for designers, brands, and creators.",
     type: "website",
-    siteName: "Spectrum Labs",
+    siteName: "tanay labe",
     locale: "en_US",
   },
   twitter: {
